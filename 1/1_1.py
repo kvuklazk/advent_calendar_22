@@ -1,0 +1,19 @@
+input = open("input.txt", "r")
+
+elves = [[]]
+
+elf_num = 0
+for line in input:
+    if line != "\n":
+        elves[elf_num].append(line.strip())
+    else:
+        elf_num += 1
+        elves.append([])
+
+elves_sum = []
+for elf, snacks in enumerate(elves):
+    elves_sum.append(0)
+    for snack in snacks:
+        elves_sum[elf] += int(snack)
+
+print(max(elves_sum))
